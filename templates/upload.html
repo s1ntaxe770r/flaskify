@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add some tunes</title>
+</head>
+<body>
+<form method=POST enctype=multipart/form-data action="{{ url_for('update') }}">
+	<input type="file" name="audio" id="ent">
+	.<input type="submit" id="sub">	
+</form>
+</body>
+</html>
