@@ -1,0 +1,23 @@
+body{
+	margin:0;
+	padding:0;
+	background-color:black;
+}
+
+.main h1{
+	margin-top:150px;
+	color:white;
+	text-align: center;
+	font-size: 70px;
+	letter-spacing:8px;
+}
+
+.nav ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	background-color:brown;
+}
+
+

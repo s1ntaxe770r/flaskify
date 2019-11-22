@@ -9,7 +9,7 @@ configure_uploads(app,audio)
 
 @app.route('/')
 def index():
-    return 'home'
+    return render_template('landing.html')
 
 
 @app.route('/listen')
