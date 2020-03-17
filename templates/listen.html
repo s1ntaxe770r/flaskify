@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>listen</title>
+	
+</head>
+<body>
+
+{% for song in directory %}
+<div class="song">
+	<h3>track: {{song}} </h3>
+	<audio controls>
+		<source src="{{url_for('static', filename='songs/') }}{{song}}" type="audio/mpeg">
+	</audio>	
+</div>
+	{% endfor %}
+</div>
+</body>
+</html>
+
