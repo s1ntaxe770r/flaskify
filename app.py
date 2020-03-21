@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from flask_uploads import UploadSet, configure_uploads, AUDIO
 import os
+import re
 
 app = Flask(__name__)
 
@@ -20,7 +21,6 @@ def listen():
 		path = os.getcwd() + r"\static\songs"
 		directory =  os.listdir(path)
 		tracks = os.listdir(path)
-		for 
 	return render_template('listen.html',directory=directory,path=path)
 
 
