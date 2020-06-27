@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, flash
-from flask_uploads import UploadSet, configure_uploads, AUDIO
+from flask_uploads import UploadSet, configure_uploads, AUDIO,UploadNotAllowed
 import os
 
-app = Flask(__name__)
+app = Flask(__name__) 
 
 audio = UploadSet("audio", AUDIO)
 app.config["UPLOADED_AUDIO_DEST"] = "static/songs"
@@ -31,9 +31,13 @@ def listen():
 @app.route("/update", methods=["GET", "POST"])
 def update():
     if request.method == "POST" and "audio" in request.files:
-        filename = audio.save(request.files["audio"])
-        print(filename)
-        return filename + " " + "has been added to the library"
+        try:
+            filename = audio.save(request.files["audio"])
+            return filename + " " + "has been added to the library"
+        except UploadNotAllowed as err:
+            return '<h1>sorry file type is not allowed :( </h1>', 406
+      
+       
     return render_template("upload.html")
 
 
@@ -41,4 +45,4 @@ def update():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    app.run(host="0.0.0.0", debug=True, port=3000)

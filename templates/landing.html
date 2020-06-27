@@ -1,28 +1,40 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>flaskify</title>
-		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css') }}"">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css') }}">
 	</head>
-	<body>
-		<div>
-			<div class="p-3 mb-2 bg-dark text-white">
-				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<body style="background-color:#37465B;">
+			<div style="background:#212B38;" class="p-3 mb-2">
+	 
+		 		   <!-- Nav Bar Start		-->
+
+				<nav class="navbar nav navbar-expand-sm ">
 					<a class="navbar-brand" href="#">Flaskify</a>
-					<ul class="navbar-nav mr-auto">
+					 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    				<span class="navbar-toggler-icon"></span>
+ 	 				</button>
+
+ 	 				<!-- nav items start -->
+					<ul style="font-size:2.4em; font-family:helvatica;" class="navbar-nav mr-auto mt-2 mt-lg-0">
 						<li class="nav-item">
-							<a class="nav-link" href="{{url_for('update')}}">Update</a>
+							<a style="color:white; margin-left:2em;" class="nav-link hov" href="{{url_for('update')}}">Update</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{{url_for('listen'}})">Stream</a>
+							<a style="color:white; margin-left:2em;" class="nav-link hov" href="{{url_for('listen')}}">Library</a>
 						</li>
 					</ul>
+
+				<!-- Nav items end -->
+
 				</nav>
 			</div>
-		</div>
-		<div class="container">
+					<!-- Nav Bar End		-->
+
+		<div  class="container sec">
 			<section>
-				
+				<h1 >Explore Your Gallery</h1>
+				<button class="btn btn-danger">go </button>
 			</section>
 		</div>
 	</body>
