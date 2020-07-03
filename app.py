@@ -8,7 +8,8 @@ audio = UploadSet("audio", AUDIO)
 app.config["UPLOADED_AUDIO_DEST"] = "static/songs"
 configure_uploads(app, audio)
 app.config["SECRET_KEY"] = "'`-qR49d-7w7}FMRIrjAoenyhhxDXF)*2ycRmkxDx'"
-
+sep = os.path.sep
+path = os.getcwd() + os.path.join(sep, "static"+sep,"songs")
 
 @app.route("/")
 def index():
@@ -19,8 +20,6 @@ def index():
 def listen():
     if request.method == "GET":
         try:
-            sep = os.path.sep
-            path = os.getcwd() + os.path.join(sep, "static"+sep,"songs")
             directory = os.listdir(path)
             tracks = os.listdir(path)
         except FileNotFoundError as err:
@@ -29,7 +28,7 @@ def listen():
     return render_template("listen.html", directory=directory)
 
 @app.route("/update", methods=["GET", "POST"])
-def update():
+def update(request):
     if request.method == "POST" and "audio" in request.files:
         try:
             filename = audio.save(request.files["audio"])
@@ -42,6 +41,12 @@ def update():
 
 
 # TODO: add search feature
+
+# def delete(filename):
+#     for song in os.listdir(path):
+#         if song == filename:
+#             location = path+sep+filename
+#             os.remove(location)
 
 
 if __name__ == "__main__":

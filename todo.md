@@ -1,5 +1,7 @@
 
 ### fix landing page 
+	* fix button bug 3/07/20
+
 
 ### add footer
 
@@ -8,7 +10,7 @@
 ### fix stream page 
 
 ### add song deletion
-
+	* implement route with delete function 3/07/20
 ### download icon packs
 
 
