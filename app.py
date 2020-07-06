@@ -1,13 +1,17 @@
 from flask import Flask, render_template, request, flash
 from flask_uploads import UploadSet, configure_uploads, AUDIO,UploadNotAllowed
 import os
+from dotenv import load_env
+from script import TrackInfo
+
+load_env()
 
 app = Flask(__name__) 
 
 audio = UploadSet("audio", AUDIO)
 app.config["UPLOADED_AUDIO_DEST"] = "static/songs"
 configure_uploads(app, audio)
-app.config["SECRET_KEY"] = "'`-qR49d-7w7}FMRIrjAoenyhhxDXF)*2ycRmkxDx'"
+app.config["SECRET_KEY"] = os.getenv('SECRET_KEY')
 sep = os.path.sep
 path = os.getcwd() + os.path.join(sep, "static"+sep,"songs")
 
