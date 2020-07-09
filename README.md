@@ -14,3 +14,7 @@
   - install the dependencies ` pip install -r requirements.txt ` 
 
 * run the app ``` python app.py ```
+
+* navigate to ` http://localhost:5000 `
+
+
