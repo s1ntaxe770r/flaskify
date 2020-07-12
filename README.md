@@ -1,5 +1,5 @@
 
-# ♬♫♪◖(●◡●)◗♪♫♬
+# ♬♫♪◖(●◡●)◗♪♫♬                      ![Lint](https://github.com/s1ntaxe770r/flaskify/workflows/Lint/badge.svg)
 
 ### Tunes from the comfort of your browser
 * because why not open another tab instead
