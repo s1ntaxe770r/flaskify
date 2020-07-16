@@ -1,19 +1,29 @@
-from flask import Flask, render_template, request, flash
-from flask_uploads import UploadSet, configure_uploads, AUDIO,UploadNotAllowed
-import os
-from dotenv import load_env
-from script import TrackInfo
 
-load_env()
+from flask_uploads import UploadSet, configure_uploads, AUDIO,UploadNotAllowed
+from flask import Flask,render_template,request
+from flask_sqlalchemy import SQLAlchemy 
+from script import TrackInfo
+from models import Track
+
+import os
+
 
 app = Flask(__name__) 
 
 audio = UploadSet("audio", AUDIO)
 app.config["UPLOADED_AUDIO_DEST"] = "static/songs"
 configure_uploads(app, audio)
-app.config["SECRET_KEY"] = os.getenv('SECRET_KEY')
+app.config["SECRET_KEY"] = "`-qR49d-7w7}FMRIrjAoenyhhxDXF)*2ycRmkxDx"
 sep = os.path.sep
 path = os.getcwd() + os.path.join(sep, "static"+sep,"songs")
+
+# database config
+project_dir = os.path.dirname(os.path.abspath(__file__))
+db_file = "sqlite:///{}".format(os.path.join(project_dir, "todo.db"))
+app.config['SQLALCHEMY_DATABASE_URI']=db_file
+db = SQLAlchemy(app)
+
+
 
 @app.route("/")
 def index():
@@ -27,8 +37,8 @@ def listen():
             directory = os.listdir(path)
             tracks = os.listdir(path)
         except FileNotFoundError as err:
-            print("songs dir not found")
-            os.mkdir(path)
+            raise err 
+           
     return render_template("listen.html", directory=directory)
 
 @app.route("/update", methods=["GET", "POST"])
