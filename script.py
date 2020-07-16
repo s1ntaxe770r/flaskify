@@ -1,8 +1,8 @@
 from tinytag import TinyTag
 
 
-class TrackInfo():
-	""" returns a dictionary of audio metadata """
+class TrackInfo:
+    """ returns a dictionary of audio metadata """
     def All(song):
         tag = TinyTag.get(song)
         title = tag.title
