@@ -1,26 +1,39 @@
 <html>
-	<head>
-		<title>listen</title>
-		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css') }}"">
-		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/blocks.min.css') }}">
-		<meta name="viewport" content="width=device-width", initial-scale=1.0"/>
-	</head>
-	<body style="background-color:#ffd740;">
-		{% for song in directory %}
-		
-		<div class="card-deck">
-			<div class="card">
-				{# <img src="{{url_for('static', filename='images/album-art.jpg')}}" class="card-img-top" alt="art"> #}
-					<div class="card-body block">
-						<p class="card-title"style="text-align:center;">track: {{song}}</p>
-							<div class="container">
-							<audio controls class="card-text" hidden="true">
-								<source src="{{url_for('static', filename='songs/') }}{{song}}" type="audio/mpeg">
-							</audio>
-						</div>
-					</div>
-			</div>
-		</div>		
-	{% endfor %}
-</body>
+  <head>
+    <title>listen</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',
+    filename='css/bootstrap.css') }}"">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='css/blocks.min.css') }}"
+    />
+    <meta name="viewport" content="width=device-width", initial-scale=1.0"/>
+  </head>
+  <body style="background-color: white;">
+    {% for song in tracks %}
+
+    <div class="card-deck">
+      <div class="card">
+        {#
+        <img
+          src="{{url_for('static', filename='images/album-art.jpg')}}"
+          class="card-img-top"
+          alt="art"
+        />
+        #}
+        <div class="card-body block">
+          <p class="card-title" style="text-align: center;">
+            track: {{song.track_title}}
+          </p>
+          <div class="container">
+            <audio controls class="card-text">
+              <source src="{{song.track_location}}" type="audio/mpeg" />
+            </audio>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </body>
 </html>
