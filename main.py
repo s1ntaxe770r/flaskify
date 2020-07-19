@@ -18,7 +18,7 @@ path = os.getcwd() + os.path.join(sep, "static" + sep, "songs")
 project_dir = os.path.dirname(os.path.abspath(__file__))
 db_file = "sqlite:///{}".format(os.path.join(project_dir, "flaskify.db"))
 app.config["SQLALCHEMY_DATABASE_URI"] = db_file
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False 	
 db = SQLAlchemy(app)
 
 
@@ -56,7 +56,11 @@ def update():
             uploaded_track_path = path + sep + filename
             track_info = TrackInfo.All(uploaded_track_path)
             artist = track_info["artist"]
+            if artist == None:
+                artist = "Unknown artist"
             title = track_info["title"]
+            if title == None:
+                title = "Unknown track"
             duration = track_info["track_lenght"]
             new_track = Track(
                 track_title=title,
