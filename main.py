@@ -5,6 +5,7 @@ from script import TrackInfo
 import os
 
 
+
 app = Flask(__name__)
 
 audio = UploadSet("audio", AUDIO)
@@ -30,6 +31,9 @@ class Track(db.Model):
     track_location = db.Column(db.String(130), nullable=False)
     track_duration = db.Column(db.Integer, nullable=False)
 
+    def __repr__(self):
+        return '<Track: {}>'.format(self.track_title)
+
 
 @app.route("/")
 def index():
@@ -38,14 +42,8 @@ def index():
 
 @app.route("/listen", methods=["GET"])
 def listen():
-    if request.method == "GET":
-        try:
-            directory = os.listdir(path)
-            tracks = os.listdir(path)
-        except FileNotFoundError as err:
-            raise err
-
-    return render_template("listen.html", directory=directory)
+    tracks = Track.query.all()
+    return render_template("listen.html",tracks=tracks)
 
 
 @app.route("/update", methods=["GET", "POST"])
