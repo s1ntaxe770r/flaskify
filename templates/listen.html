@@ -22,18 +22,26 @@
           alt="art"
         />
         #}
-        <div class="card-body block">
-          <p class="card-title" style="text-align: center;">
+        <div class="card-body block" style="width:33%; height:10em;">
+          <p style="text-align: center;">
             track: {{song.track_title}}
           </p>
           <div class="container">
             <audio controls class="card-text">
-              <source src="{{song.track_location}}" type="audio/mpeg" />
+
+                <source src="{{url_for('static', filename='songs/' + song.track_location) }}">  
+            
+            
             </audio>
           </div>
         </div>
       </div>
     </div>
-    {% endfor %}
+
+   
+
+
+    {% endfor %}    
+
   </body>
 </html>
