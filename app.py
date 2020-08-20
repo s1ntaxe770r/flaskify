@@ -2,9 +2,11 @@ from flask_uploads import UploadSet, configure_uploads, AUDIO, UploadNotAllowed
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from script import TrackInfo
+from dotenv import load_dotenv
 import os
 
 
+load_dotenv()
 
 app = Flask(__name__)
 
