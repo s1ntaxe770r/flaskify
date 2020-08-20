@@ -1,28 +1,41 @@
-# create sync function to keep db and file system in "sync" :grin:
+# Core Features 
 
-## impement Blueprints
+*  Add lyrics feature using adrian's lyric scrapper 
+	[repo](https://github.com/LoboAdrian/Lyrics)
 
-## create navbar block
+* create sync function to keep db and file system in "sync" :grin:
 
-### fix landing page 
-	* fix button bug 3/07/20
+* impement Blueprints
 
+* create navbar block
 
-### add footer
+* Song Deletion (API endpoint?) SPRNT 08-20-20
 
-### implement album art feature
-
-### fix stream page 
-
-
-### add song deletion
-	* implement route with delete function 3/07/20
-
-	* make it an api route
-### download icon packs 
+* Track Sharing
 
 
-### nav bar image *http://localhost/bootstrap/components/navbar/navbar.htm  
+# Frontend Related Features   
+
+* add song deletion
+
+* download icon packs 
+
+* implement album art feature
+
+* nav bar image [site](http://localhost/bootstrap/components/navbar/navbar.htm) 
 
 
-<!-- ### update route curently does not have a default if the metadata returns 'none' -- which breaks the database schema's not null constraint --> done
+
+
+
+
+## Bugs I Created
+
+*  Use media Queries to fix /listen on smaller screens
+
+* fix stream page 
+
+* fix landing page (Fixed) SPRNT 08-20-20
+
+
+
