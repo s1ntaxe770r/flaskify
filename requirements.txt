@@ -5,7 +5,7 @@ click==7.1.1
 dataclasses==0.7
 deprecation==2.1.0
 filetype==1.0.7
-Flask==1.0.3
+Flask==2.3.2
 Flask-SQLAlchemy==2.4.0
 Flask-Uploads==0.2.1
 itsdangerous==1.1.0
